@@ -20,6 +20,9 @@
         .accordion-button.active .plus-icon {
             transform: rotate(45deg);
         }
+        .gallery-image {
+            cursor: zoom-in;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -66,41 +69,41 @@
             <p class="text-slate-700 leading-relaxed mb-6">走在景美街頭，您會發現，越來越多的店家、社區與鄰居，都已經自主貼出禁菸標示。從官方的勸導單張、社區的統一公告，到店家充滿創意的提醒，都顯示「打造無菸環境」早已是我們生活圈的共同價值。我們並不孤單，只是將這份共識，更明確地落實在我們的家園。</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <!-- All images are now uniform -->
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景後街99號.jpg" alt="景後街99號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">
                         <p class="font-bold">景後街 99 號</p>
                     </div>
                 </div>
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
-                    <img src="景文街46-1號 1.JPG" alt="景文街46-1號的禁菸標示" class="w-full h-full object-cover">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
+                    <img src="景文街46-1號_1.JPG" alt="景文街46-1號的禁菸標示 (1)" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景文街 46-1 號</div>
                 </div>
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
-                    <img src="景文街46-2號 2.JPG" alt="景文街46-1號的禁菸標示" class="w-full h-full object-cover">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
+                    <img src="景文街46-1號_2.JPG" alt="景文街46-1號的禁菸標示 (2)" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景文街 46-1 號</div>
                 </div>
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="車前路11-1號.JPG" alt="車前路11-1號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">車前路 11-1 號</div>
                 </div>
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景文街46-2號.JPG" alt="景文街46-2號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景文街 46-2 號</div>
                 </div>
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景後街130號.JPG" alt="景後街130號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景後街 130 號</div>
                 </div>
-                 <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                 <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景美街43-1號.JPG" alt="景美街43-1號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景美街 43-1 號</div>
                 </div>
-                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景美街43號.JPG" alt="景美街43號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景美街 43 號</div>
                 </div>
-                 <div class="relative rounded-lg overflow-hidden shadow-md aspect-square">
+                 <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景文街71號.JPG" alt="景文街71號的禁菸標示" class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">景文街 71 號</div>
                 </div>
@@ -165,6 +168,13 @@
 
         </section>
     </div>
+
+    <!-- Modal for Image Zoom -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
+        <span id="closeModal" class="absolute top-4 right-6 text-white text-5xl font-light cursor-pointer hover:text-gray-300">&times;</span>
+        <img id="modalImage" src="" alt="放大的圖片" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+    </div>
+
 
     <script>
         function createAccordion(containerId, data, isRef = false) {
@@ -247,7 +257,7 @@
             {
                 category: "二手菸、三手菸對健康的危害",
                 references: [
-                    { citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血小板、內皮功能、動脈硬度等產生負面影響。" },
+                    { citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血板、內皮功能、動脈硬度等產生負面影響。" },
                     { citation: "IARC Working Group on the Evaluation of Carcinogenic Risks to Humans. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs on the evaluation of carcinogenic risks to humans</i>, <i>83</i>, 1.", summary: "國際癌症研究機構（IARC）的這份專著，全面評估了菸草煙霧和非自願吸菸（二手菸）的致癌風險，並明確指出二手菸對人類是致癌物質（第一級致癌物）。" },
                     { citation: "Sleiman, M., et al. (2010). Formation of carcinogens indoors by surface-mediated reactions of nicotine with nitrous acid, leading to potential thirdhand smoke hazards. <i>Proceedings of the National Academy of Sciences</i>, <i>107</i>(15), 6576-6581.", summary: "此研究揭示了「三手菸」的危害，附著在室內物體表面的尼古丁會與環境中的亞硝酸反應，形成具有致癌性的亞硝胺，對人體構成潛在的健康威脅。" },
                     { citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", summary: "美國衛生及公共服務部發布的這份外科總署報告，詳細闡述了二手菸對健康的各種危害，包括導致心臟病、肺癌，以及對兒童呼吸系統的嚴重影響。" }
@@ -277,6 +287,43 @@
         // Initialize both accordions
         createAccordion('accordion-qa-container', qaData, false);
         createAccordion('accordion-ref-container', refData, true);
+
+        // --- Image Modal Logic ---
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModalBtn = document.getElementById('closeModal');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+
+        galleryImages.forEach(container => {
+            container.addEventListener('click', () => {
+                const imgElement = container.querySelector('img');
+                if (imgElement) {
+                    modalImage.src = imgElement.src;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                }
+            });
+        });
+
+        const closeTheModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        closeModalBtn.addEventListener('click', closeTheModal);
+
+        modal.addEventListener('click', (e) => {
+            // Close if the click is on the background, not the image itself
+            if (e.target === modal) {
+                closeTheModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeTheModal();
+            }
+        });
     </script>
 </body>
 </html>
