@@ -20,6 +20,9 @@
         .accordion-button.active .plus-icon {
             transform: rotate(45deg);
         }
+        #qrcode img {
+            margin: auto;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -92,102 +95,96 @@
         </section>
     </div>
 
+    <!-- Footer with QR Code -->
+    <footer class="text-center mt-12 py-8 border-t border-slate-200 bg-white">
+        <div class="container mx-auto max-w-4xl px-4">
+            <h3 class="text-lg font-semibold text-slate-700 mb-4">用手機掃描QR Code，輕鬆分享提案網頁</h3>
+            <div class="flex justify-center">
+                <div id="qrcode" class="p-2 bg-white border rounded-lg shadow-sm"></div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- QR Code generation library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
     <script>
-        // --- Accordion Logic ---
-        const qaData = [
-            {
-                q: "這是我的自由，在戶外抽菸又不犯法，管太多了！",
-                a: "<strong>自由的界線：</strong> 個人自由不應建立在侵害他人健康的基礎上，如同噪音擾鄰。<br><strong>法律的授權：</strong> 《菸害防制法》第19條第1項第4款授權場所管理人指定禁菸區。社區依此合法指定。<br><strong>無安全暴露劑量：</strong> WHO和CDC明確指出，二手菸沒有安全的暴露劑量，吸入即有害。"
-            },
-            {
-                q: "戶外空間那麼開闊，菸味一下就散了，有那麼嚴重嗎？",
-                a: "<strong>戶外二手菸濃度研究：</strong> 史丹佛研究顯示，戶外數公尺遠仍可達有害PM2.5濃度。<br><strong>菸霧飄散與滲透：</strong> 菸霧隨風飄散可進入鄰近窗戶、陽台、門縫。<br><strong>三手菸的危害：</strong> 菸毒物會附著在物體表面（牆面、植栽、衣物），即使菸熄滅後仍持續危害。"
-            },
-            {
-                q: "與其全面禁止，不如設立一個『吸菸區』就好？",
-                a: "<strong>菸霧無邊界：</strong> 菸霧會隨風飄散數公尺，社區有限空間無法避免影響。<br><strong>WHO 的明確立場：</strong> WHO強調，任何分開吸菸者與非吸菸者的措施都不能完全消除暴露，唯有100%無菸環境有效。<br><strong>實際執行的困難：</strong> 吸菸區會導致管理困難、菸灰亂飄，並傳達錯誤訊息。"
-            },
-            {
-                q: "訂了也沒用，還不是有人會偷抽？誰來抓？反而造成鄰居衝突。",
-                a: "<strong>法規的宣示效果：</strong> 建立禁菸規約，首先確立「社區不歡迎二手菸」的共同標準。<br><strong>分階段執行計畫：</strong> 透過公告標示、柔性勸導，再到依規約處罰，逐步落實。<br><strong>降低衝突，而非製造衝突：</strong> 明文規定使勸導有依據，減少住戶間直接衝突。"
-            },
-            {
-                q: "我也有繳管理費，為什麼我使用公共空間的權利被剝奪？",
-                a: "<strong>權利的平等與保障：</strong> 所有住戶都有平等使用權，但吸菸行為剝奪了其他住戶「健康地」使用空間的權利。<br><strong>公共利益優先：</strong> 《公寓大廈管理條例》精神是維護共同利益，多數人健康權優先於少數人吸菸行為。<br><strong>舉例類比：</strong> 如同電梯不能飲食喧嘩，禁菸是為了維護公共空間使用品質。"
-            },
-            {
-                q: "為什麼只針對抽菸？小孩在前庭吵鬧、住戶的油煙味、年節燒金紙，這些也影響安寧和空氣，怎麼不管？",
-                a: "<strong>危害等級的根本差異：</strong> 二手菸是WHO認證的「一級致癌物」，與油煙、噪音的影響本質不同。<br><strong>受害的不可控性：</strong> 菸害是持續性、非自願的暴露，無法避免，對健康威脅遠高於其他干擾。<br><strong>法律的明確規範：</strong> 《菸害防制法》的專法地位，證明菸害是需要特別管制的公共衛生議題。"
-            },
-            {
-                q: "在戶外禁菸，只會逼得大家改在自家陽台抽，菸味更容易飄進樓上鄰居家，不是更糟嗎？",
-                a: "<strong>陽台並非法外之地：</strong> 自家陽台吸菸若影響鄰居，同樣構成「權利濫用」，違反《民法》。<br><strong>已有法院判例支持：</strong> 多起法院判例已裁定在家中吸菸影響鄰居須賠償並禁止菸味飄散。<br><strong>分階段處理，建立社區共識：</strong> 先解決影響最廣的公共區域，建立無菸共識，再處理個別住戶問題。"
-            },
-            {
-                q: "抽菸是我舒緩壓力的方式，工作很累，回家連在樓下抽根菸放鬆一下都不行嗎？太不近人情了！",
-                a: "<strong>醫學事實：</strong> 尼古丁的「放鬆感」實為緩解戒斷症狀的假象，長期有害神經系統。<br><strong>危害自己，也危害他人：</strong> 個人舒壓不應犧牲鄰居（特別是弱勢族群）的健康權益。<br><strong>提供正向支持：</strong> 社區目標是「支持健康」，可鼓勵使用戒菸門診等資源，尋求真正健康的舒壓方式。"
-            },
-            {
-                q: "這是少數人強加的意見吧？有問過所有住戶的意見嗎？憑什麼你們幾個人說了算？",
-                a: "<strong>遵循合法民主程序：</strong> 提案是正式程序，將送交管委會和區權會，符合《公寓大廈管理條例》規定。<br><strong>提案是討論的起點：</strong> 目的在於公開討論議題，最終決定由全體區分所有權人共同決議。<br><strong>健康權的普世價值：</strong> 呼吸乾淨空氣是基本人權，相信住戶會為了健康做出明智選擇。"
-            },
-            {
-                q: "我的不是傳統紙菸，是加熱菸／電子煙，只會產生『蒸氣』，沒有二手菸的問題，不應該一起禁止！",
-                a: "<strong>法律上的明確禁止與納管：</strong> 新版《菸害防制法》已「全面禁止」電子煙使用；加熱菸則被視為「菸品」，適用所有傳統菸品的禁菸規定。<br><strong>科學上的健康危害：</strong> 新型菸品產生的是含有尼古丁、重金屬、甲醛等致癌物的「氣溶膠」，絕非無害水蒸氣，同樣對旁人健康有害。"
-            },
-            {
-                q: "不喜歡菸味，你們可以自己關窗戶啊！要求別人，不如管理好自己。",
-                a: "<strong>基本居住權的侵害：</strong> 開窗通風、呼吸新鮮空氣是基本居住權，為躲避菸害而關窗是對居住品質的嚴重侵害。<br><strong>污染者責任原則：</strong> 菸害製造者有責任停止污染，而非要求被污染者自我防禦。<br><strong>關窗造成的其他健康風險：</strong> 長期關窗會導致室內二氧化碳、甲醛等空污物濃度升高，同樣損害健康。"
-            },
-            {
-                q: "我在這裡住了二十幾年，一直都這樣在樓下抽菸，以前都沒事，為什麼現在突然要改？",
-                a: "<strong>與時俱進的健康觀念：</strong> 社會健康與安全標準不斷進步，對菸害的認識已更全面，規範應反映這種進步。<br><strong>社區是流動的有機體：</strong> 社區規範應為所有成員（特別是脆弱族群）提供安全健康環境，為下一代做出改變。<br><strong>從負擔變為資產：</strong> 「全面禁菸」的公共環境是現代社區的正面標籤和資產，能提升社區價值。"
-            }
-        ];
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Accordion Logic ---
+            const qaData = [
+                { q: "這是我的自由，在戶外抽菸又不犯法，管太多了！", a: "<strong>自由的界線：</strong> 個人自由不應建立在侵害他人健康的基礎上，如同噪音擾鄰。<br><strong>法律的授權：</strong> 《菸害防制法》第19條第1項第4款授權場所管理人指定禁菸區。社區依此合法指定。<br><strong>無安全暴露劑量：</strong> WHO和CDC明確指出，二手菸沒有安全的暴露劑量，吸入即有害。" },
+                { q: "戶外空間那麼開闊，菸味一下就散了，有那麼嚴重嗎？", a: "<strong>戶外二手菸濃度研究：</strong> 史丹佛研究顯示，戶外數公尺遠仍可達有害PM2.5濃度。<br><strong>菸霧飄散與滲透：</strong> 菸霧隨風飄散可進入鄰近窗戶、陽台、門縫。<br><strong>三手菸的危害：</strong> 菸毒物會附著在物體表面（牆面、植栽、衣物），即使菸熄滅後仍持續危害。" },
+                { q: "與其全面禁止，不如設立一個『吸菸區』就好？", a: "<strong>菸霧無邊界：</strong> 菸霧會隨風飄散數公尺，社區有限空間無法避免影響。<br><strong>WHO 的明確立場：</strong> WHO強調，任何分開吸菸者與非吸菸者的措施都不能完全消除暴露，唯有100%無菸環境有效。<br><strong>實際執行的困難：</strong> 吸菸區會導致管理困難、菸灰亂飄，並傳達錯誤訊息。" },
+                { q: "訂了也沒用，還不是有人會偷抽？誰來抓？反而造成鄰居衝突。", a: "<strong>法規的宣示效果：</strong> 建立禁菸規約，首先確立「社區不歡迎二手菸」的共同標準。<br><strong>分階段執行計畫：</strong> 透過公告標示、柔性勸導，再到依規約處罰，逐步落實。<br><strong>降低衝突，而非製造衝突：</strong> 明文規定使勸導有依據，減少住戶間直接衝突。" },
+                { q: "我也有繳管理費，為什麼我使用公共空間的權利被剝奪？", a: "<strong>權利的平等與保障：</strong> 所有住戶都有平等使用權，但吸菸行為剝奪了其他住戶「健康地」使用空間的權利。<br><strong>公共利益優先：</strong> 《公寓大廈管理條例》精神是維護共同利益，多數人健康權優先於少數人吸菸行為。<br><strong>舉例類比：</strong> 如同電梯不能飲食喧嘩，禁菸是為了維護公共空間使用品質。" },
+                { q: "為什麼只針對抽菸？小孩在前庭吵鬧、住戶的油煙味、年節燒金紙，這些也影響安寧和空氣，怎麼不管？", a: "<strong>危害等級的根本差異：</strong> 二手菸是WHO認證的「一級致癌物」，與油煙、噪音的影響本質不同。<br><strong>受害的不可控性：</strong> 菸害是持續性、非自願的暴露，無法避免，對健康威脅遠高於其他干擾。<br><strong>法律的明確規範：</strong> 《菸害防制法》的專法地位，證明菸害是需要特別管制的公共衛生議題。" },
+                { q: "在戶外禁菸，只會逼得大家改在自家陽台抽，菸味更容易飄進樓上鄰居家，不是更糟嗎？", a: "<strong>陽台並非法外之地：</strong> 自家陽台吸菸若影響鄰居，同樣構成「權利濫用」，違反《民法》。<br><strong>已有法院判例支持：</strong> 多起法院判例已裁定在家中吸菸影響鄰居須賠償並禁止菸味飄散。<br><strong>分階段處理，建立社區共識：</strong> 先解決影響最廣的公共區域，建立無菸共識，再處理個別住戶問題。" },
+                { q: "抽菸是我舒緩壓力的方式，工作很累，回家連在樓下抽根菸放鬆一下都不行嗎？太不近人情了！", a: "<strong>醫學事實：</strong> 尼古丁的「放鬆感」實為緩解戒斷症狀的假象，長期有害神經系統。<br><strong>危害自己，也危害他人：</strong> 個人舒壓不應犧牲鄰居（特別是弱勢族群）的健康權益。<br><strong>提供正向支持：</strong> 社區目標是「支持健康」，可鼓勵使用戒菸門診等資源，尋求真正健康的舒壓方式。" },
+                { q: "這是少數人強加的意見吧？有問過所有住戶的意見嗎？憑什麼你們幾個人說了算？", a: "<strong>遵循合法民主程序：</strong> 提案是正式程序，將送交管委會和區權會，符合《公寓大廈管理條例》規定。<br><strong>提案是討論的起點：</strong> 目的在於公開討論議題，最終決定由全體區分所有權人共同決議。<br><strong>健康權的普世價值：</strong> 呼吸乾淨空氣是基本人權，相信住戶會為了健康做出明智選擇。" },
+                { q: "我的不是傳統紙菸，是加熱菸／電子煙，只會產生『蒸氣』，沒有二手菸的問題，不應該一起禁止！", a: "<strong>法律上的明確禁止與納管：</strong> 新版《菸害防制法》已「全面禁止」電子煙使用；加熱菸則被視為「菸品」，適用所有傳統菸品的禁菸規定。<br><strong>科學上的健康危害：</strong> 新型菸品產生的是含有尼古丁、重屬、甲醛等致癌物的「氣溶膠」，絕非無害水蒸氣，同樣對旁人健康有害。" },
+                { q: "不喜歡菸味，你們可以自己關窗戶啊！要求別人，不如管理好自己。", a: "<strong>基本居住權的侵害：</strong> 開窗通風、呼吸新鮮空氣是基本居住權，為躲避菸害而關窗是對居住品質的嚴重侵害。<br><strong>污染者責任原則：</strong> 菸害製造者有責任停止污染，而非要求被污染者自我防禦。<br><strong>關窗造成的其他健康風險：</strong> 長期關窗會導致室內二氧化碳、甲醛等空污物濃度升高，同樣損害健康。" },
+                { q: "我在這裡住了二十幾年，一直都這樣在樓下抽菸，以前都沒事，為什麼現在突然要改？", a: "<strong>與時俱進的健康觀念：</strong> 社會健康與安全標準不斷進步，對菸害的認識已更全面，規範應反映這種進步。<br><strong>社區是流動的有機體：</strong> 社區規範應為所有成員（特別是脆弱族群）提供安全健康環境，為下一代做出改變。<br><strong>從負擔變為資產：</strong> 「全面禁菸」的公共環境是現代社區的正面標籤和資產，能提升社區價值。" }
+            ];
 
-        const container = document.getElementById('accordion-container');
+            const container = document.getElementById('accordion-container');
+            if (container) {
+                qaData.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden';
+                    div.innerHTML = `
+                        <button class="accordion-button w-full text-left p-4 pr-12 font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none relative transition-colors duration-200">
+                            <span class="mr-2">Q${index + 1}:</span>
+                            ${item.q}
+                            <span class="plus-icon absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-teal-500 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-2 text-slate-600 leading-relaxed border-t border-slate-200">
+                                ${item.a}
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
 
-        qaData.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = 'bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden';
-            div.innerHTML = `
-                <button class="accordion-button w-full text-left p-4 pr-12 font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none relative transition-colors duration-200">
-                    <span class="mr-2">Q${index + 1}:</span>
-                    ${item.q}
-                    <span class="plus-icon absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-teal-500 transition-transform duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                    </span>
-                </button>
-                <div class="accordion-content">
-                    <div class="p-4 pt-2 text-slate-600 leading-relaxed border-t border-slate-200">
-                        ${item.a}
-                    </div>
-                </div>
-            `;
-            container.appendChild(div);
-        });
+                container.addEventListener('click', function(e) {
+                    const button = e.target.closest('.accordion-button');
+                    if (!button) return;
 
-        container.addEventListener('click', function(e) {
-            const button = e.target.closest('.accordion-button');
-            if (!button) return;
+                    const content = button.nextElementSibling;
+                    
+                    button.classList.toggle('active');
 
-            const content = button.nextElementSibling;
-            
-            button.classList.toggle('active');
-
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                const allButtons = container.querySelectorAll('.accordion-button.active');
-                allButtons.forEach(btn => {
-                    if (btn !== button) {
-                        btn.classList.remove('active');
-                        btn.nextElementSibling.style.maxHeight = null;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        const allButtons = container.querySelectorAll('.accordion-button.active');
+                        allButtons.forEach(btn => {
+                            if (btn !== button) {
+                                btn.classList.remove('active');
+                                btn.nextElementSibling.style.maxHeight = null;
+                            }
+                        });
+                        content.style.maxHeight = content.scrollHeight + "px";
                     }
                 });
-                content.style.maxHeight = content.scrollHeight + "px";
+            }
+
+            // --- QR Code Generation Logic ---
+            const qrcodeElement = document.getElementById("qrcode");
+            if (qrcodeElement) {
+                new QRCode(qrcodeElement, {
+                    text: "https://fulidi-no-smoking.netlify.app/",
+                    width: 160,
+                    height: 160,
+                    colorDark : "#0f766e", // Teal-700 color to match the theme
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
             }
         });
     </script>
