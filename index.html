@@ -23,6 +23,16 @@
         .gallery-image {
             cursor: zoom-in;
         }
+        .reference-link {
+            color: #0d9488; /* text-teal-600 */
+            text-decoration: underline;
+            text-decoration-color: #99f6e4; /* teal-200 */
+            transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
+        }
+        .reference-link:hover {
+            color: #115e59; /* text-teal-800 */
+            text-decoration-color: #115e59;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -187,12 +197,16 @@
 
                 let contentHtml = '';
                 if (isRef) {
-                    contentHtml = item.references.map(ref => `
+                    contentHtml = item.references.map(ref => {
+                        const citationHtml = ref.url ? 
+                            `<a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="reference-link">${ref.citation}</a>` : 
+                            ref.citation;
+                        return `
                         <div class="mb-4 pb-4 border-b border-slate-200 last:border-b-0 last:pb-0 last:mb-0">
-                            <p class="text-sm text-slate-500 italic">${ref.citation}</p>
+                            <p class="text-sm text-slate-500 italic">${citationHtml}</p>
                             <p class="mt-1 text-slate-700"><strong class="font-semibold text-teal-700">重點摘要：</strong>${ref.summary}</p>
                         </div>
-                    `).join('');
+                    `}).join('');
                 } else {
                     contentHtml = item.a;
                 }
@@ -257,29 +271,61 @@
             {
                 category: "二手菸、三手菸對健康的危害",
                 references: [
-                    { citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血板、內皮功能、動脈硬度等產生負面影響。" },
-                    { citation: "IARC Working Group on the Evaluation of Carcinogenic Risks to Humans. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs on the evaluation of carcinogenic risks to humans</i>, <i>83</i>, 1.", summary: "國際癌症研究機構（IARC）的這份專著，全面評估了菸草煙霧和非自願吸菸（二手菸）的致癌風險，並明確指出二手菸對人類是致癌物質（第一級致癌物）。" },
-                    { citation: "Sleiman, M., et al. (2010). Formation of carcinogens indoors by surface-mediated reactions of nicotine with nitrous acid, leading to potential thirdhand smoke hazards. <i>Proceedings of the National Academy of Sciences</i>, <i>107</i>(15), 6576-6581.", summary: "此研究揭示了「三手菸」的危害，附著在室內物體表面的尼古丁會與環境中的亞硝酸反應，形成具有致癌性的亞硝胺，對人體構成潛在的健康威脅。" },
-                    { citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", summary: "美國衛生及公共服務部發布的這份外科總署報告，詳細闡述了二手菸對健康的各種危害，包括導致心臟病、肺癌，以及對兒童呼吸系統的嚴重影響。" }
+                    { 
+                        citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", 
+                        summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血小板、內皮功能、動脈硬度等產生負面影響。",
+                        url: "https://www.ahajournals.org/doi/full/10.1161/01.CIR.0000166552.20818.7E"
+                    },
+                    { 
+                        citation: "IARC Working Group on the Evaluation of Carcinogenic Risks to Humans. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs on the evaluation of carcinogenic risks to humans</i>, <i>83</i>, 1.", 
+                        summary: "國際癌症研究機構（IARC）的這份專著，全面評估了菸草煙霧和非自願吸菸（二手菸）的致癌風險，並明確指出二手菸對人類是致癌物質（第一級致癌物）。",
+                        url: "https://publications.iarc.fr/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Tobacco-Smoke-And-Involuntary-Smoking-2004"
+                    },
+                    { 
+                        citation: "Sleiman, M., et al. (2010). Formation of carcinogens indoors by surface-mediated reactions of nicotine with nitrous acid, leading to potential thirdhand smoke hazards. <i>Proceedings of the National Academy of Sciences</i>, <i>107</i>(15), 6576-6581.", 
+                        summary: "此研究揭示了「三手菸」的危害，附著在室內物體表面的尼古丁會與環境中的亞硝酸反應，形成具有致癌性的亞硝胺，對人體構成潛在的健康威脅。",
+                        url: "https://www.pnas.org/doi/10.1073/pnas.0912820107"
+                    },
+                    { 
+                        citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", 
+                        summary: "美國衛生及公共服務部發布的這份外科總署報告，詳細闡述了二手菸對健康的各種危害，包括導致心臟病、肺癌，以及對兒童呼吸系統的嚴重影響。",
+                        url: "https://www.ncbi.nlm.nih.gov/books/NBK44324/"
+                    }
                 ]
             },
             {
                 category: "菸煙在集合式住宅中的傳播",
                 references: [
-                    { citation: "Kraev, T. A., et al. (2009). Indoor concentrations of nicotine in low-income, multi-unit housing: associations with smoking behaviours and housing characteristics. <i>Tobacco Control</i>, <i>18</i>(6), 438-444.", summary: "研究發現，在集合式住宅中，即使是禁菸的住戶，家中仍會偵測到從鄰近吸菸戶滲透進來的尼古丁，顯示菸煙會透過各種管道在建築物內擴散。" }
+                    { 
+                        citation: "Kraev, T. A., et al. (2009). Indoor concentrations of nicotine in low-income, multi-unit housing: associations with smoking behaviours and housing characteristics. <i>Tobacco Control</i>, <i>18</i>(6), 438-444.", 
+                        summary: "研究發現，在集合式住宅中，即使是禁菸的住戶，家中仍會偵測到從鄰近吸菸戶滲透進來的尼古丁，顯示菸煙會透過各種管道在建築物內擴散。",
+                        url: "https://tobaccocontrol.bmj.com/content/18/6/438"
+                    }
                 ]
             },
             {
                 category: "通風設備無法有效過濾二手菸",
                 references: [
-                    { citation: "World Health Organization. (2007). <i>Protection from exposure to second-hand tobacco smoke: policy recommendations</i>. WHO Press.", summary: "世界衛生組織的政策建議明確指出，無論是通風、換氣或指定吸菸區，都無法有效保護人們免於二手菸的危害，唯一有效的方法是建立百分之百的無菸環境。" }
+                    { 
+                        citation: "World Health Organization. (2007). <i>Protection from exposure to second-hand tobacco smoke: policy recommendations</i>. WHO Press.", 
+                        summary: "世界衛生組織的政策建議明確指出，無論是通風、換氣或指定吸菸區，都無法有效保護人們免於二手菸的危害，唯一有效的方法是建立百分之百的無菸環境。",
+                        url: "https://iris.who.int/handle/10665/43677"
+                    }
                 ]
             },
             {
                 category: "法源依據",
                 references: [
-                    { citation: "全國法規資料庫。 (2023)。《菸害防制法》。", summary: "其中第19條規定了室外公共場所的禁菸範圍，並授權各級主管機關可公告指定其他禁菸場所，是社區管委會劃定禁菸區的法源之一。" },
-                    { citation: "全國法規資料庫。 (2022)。《公寓大廈管理條例》。", summary: "第16條規定住戶不得有妨礙公共衛生、公共安寧及公共安全的行為。第23條則授權社區可透過區權會決議，將禁菸事項納入規約。這兩條是將社區公共區域禁菸納入規約的主要法源基礎。" }
+                    { 
+                        citation: "全國法規資料庫。《菸害防制法》", 
+                        summary: "其中第19條規定了室外公共場所的禁菸範圍，並授權各級主管機關可公告指定其他禁菸場所，是社區管委會劃定禁菸區的法源之一。",
+                        url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0070021"
+                    },
+                    { 
+                        citation: "全國法規資料庫。《公寓大廈管理條例》", 
+                        summary: "第16條規定住戶不得有妨礙公共衛生、公共安寧及公共安全的行為。第23條則授權社區可透過區權會決議，將禁菸事項納入規約。這兩條是將社區公共區域禁菸納入規約的主要法源基礎。",
+                        url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070118"
+                    }
                 ]
             }
         ];
