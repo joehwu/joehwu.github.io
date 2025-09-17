@@ -17,6 +17,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-in-out;
+            background-color: #f8fafc; /* bg-slate-50 for subtle contrast */
         }
         .accordion-button.active .plus-icon {
             transform: rotate(45deg);
@@ -160,17 +161,20 @@
             </h2>
             <p class="mb-6 max-w-2xl mx-auto">打造無菸家園需要你我共同努力。您的每個支持，都是讓社區更美好的重要力量！</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-teal-800">
-                <div class="bg-white p-4 rounded-lg support-card">
+                <div class="bg-white p-4 rounded-lg support-card flex flex-col items-center text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" /></svg>
                     <h3 class="font-bold text-lg mb-1">分享資訊</h3>
-                    <p class="text-sm">將這個網頁分享給您的鄰居或社區群組，讓更多人了解提案內容。</p>
+                    <p class="text-sm">將網頁分享給鄰居，讓更多人了解提案內容。</p>
                 </div>
-                <div class="bg-white p-4 rounded-lg support-card">
+                <div class="bg-white p-4 rounded-lg support-card flex flex-col items-center text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h4M5 8h1.5M5 11h1.5M5 14h1.5M12 8h1.5M12 11h1.5M12 14h1.5" /></svg>
                     <h3 class="font-bold text-lg mb-1">友善溝通</h3>
-                    <p class="text-sm">與鄰居們聊聊這個議題，匯集更多正面的意見與支持。</p>
+                    <p class="text-sm">與鄰居們聊聊議題，匯集更多正面的意見與支持。</p>
                 </div>
-                <div class="bg-white p-4 rounded-lg support-card">
+                <div class="bg-white p-4 rounded-lg support-card flex flex-col items-center text-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
                     <h3 class="font-bold text-lg mb-1">參與會議</h3>
-                    <p class="text-sm">請務必參與將召開的區分所有權人會議，投下您關鍵的同意票！</p>
+                    <p class="text-sm">參與區權會，投下您關鍵的同意票！</p>
                 </div>
             </div>
             
@@ -188,7 +192,7 @@
         <!-- Footer -->
         <footer class="text-center text-sm text-slate-500 mt-12 py-4 border-t">
             <p>為更美好的社區共同努力</p>
-            <p class="mt-1">最後更新日期：2025年9月17日</p>
+            <p id="last-updated" class="mt-1"></p>
         </footer>
 
     </div>
@@ -280,7 +284,7 @@
 
         const qaData = [
             { q: "「這是我的自由，在戶外抽菸又不犯法，管太多了！」", a: "<strong>自由的界線：</strong> 我們尊重每個人選擇的自由，但當此行為的二手產物會直接飄散並侵害到他人時，就超越了個人自由的範疇。這如同您有播放音樂的自由，但不能在深夜將音量大到影響鄰居安寧。<br><br><strong>法律的授權：</strong> 提案完全合法。《菸害防制法》第19條第1項第4款明確授權『由場所所有人、負責人或管理人指定禁止吸菸之場所』。我們正是依此合法授權，由社區作為管理人，來指定公共區域為禁菸區，以維護住戶健康。<br><br><strong>無安全暴露劑量 (No Safe Level of Exposure)：</strong> 世界衛生組織 (WHO) 與美國疾病管制與預防中心 (CDC) 都已明確指出，二手菸沒有安全的暴露劑量。只要吸入，就有害健康。因此，問題不在於抽多抽少，而在於『有無』。" },
-            { q: "「戶外空間那麼開闊，菸味一下就散了，有那麼嚴重嗎？」", a: "<strong>戶外二手菸濃度研究：</strong> 這是一個常見的誤解。史丹佛大学的研究曾指出，在室外下風處，距離吸菸者數公尺遠的地方，二手菸中的懸浮微粒 (PM2.5) 濃度仍可達到對健康有害的水平。<br><br><strong>菸霧飄散與滲透：</strong> 菸霧並非向上飄就消失，它會隨氣流水平移動，輕易地飄進鄰近的窗戶、陽台，甚至透過門縫滲入低樓層住家。前庭的菸味，住在較低樓層的住戶也常聞得到，這就是證明。<br><br><strong>三手菸 (Third-hand Smoke) 的危害：</strong> 菸熄滅後，其有毒物質會附著在庭院的牆面、植栽、地面及吸菸者的衣物上，這就是『三手菸』。當我們的孩子在前庭玩耍，觸摸這些表面，或住戶經過時，同樣會接觸到這些致癌物。這些毒物可以停留數小時甚至數天之久。" },
+            { q: "「戶外空間那麼開闊，菸味一下就散了，有那麼嚴重嗎？」", a: "<strong>戶外二手菸濃度研究：</strong> 這是一個常見的誤解。史丹佛大學的研究指出，在室外下風處，距離吸菸者數公尺遠的地方，二手菸中的懸浮微粒 (PM2.5) 濃度仍可達到對健康有害的水平。<br><br><strong>菸霧飄散與滲透：</strong> 菸霧並非向上飄就消失，它會隨氣流水平移動，輕易地飄進鄰近的窗戶、陽台，甚至透過門縫滲入低樓層住家。前庭的菸味，住在較低樓層的住戶也常聞得到，這就是證明。<br><br><strong>三手菸 (Third-hand Smoke) 的危害：</strong> 菸熄滅後，其有毒物質會附著在庭院的牆面、植栽、地面及吸菸者的衣物上，這就是『三手菸』。當我們的孩子在前庭玩耍，觸摸這些表面，或住戶經過時，同樣會接觸到這些致癌物。這些毒物可以停留數小時甚至數天之久。" },
             { q: "「與其全面禁止，不如設立一個『吸菸區』就好？」", a: "<strong>菸霧無邊界：</strong> 謝謝您的建議，這個想法的出發點很好。但科學上，菸霧是沒有邊界的。如前述，菸霧會隨風飄散至少數公尺。在社區有限的前庭空間，無論吸菸區劃在哪個角落，都無法避免菸霧飄散到公共出入口、人行道或住戶的窗戶。<br><br><strong>WHO 的明確立場：</strong> 世界衛生組織對此的立場非常清楚：通風、換氣，或將吸菸者與非吸菸者分開，都不能完全消除二手菸的暴露。唯一能提供有效保護的方法，就是100%的無菸環境。<br><br><strong>實際執行的困難：</strong> 設立吸菸區反而會衍生管理問題。例如，如何確保吸菸者都在區內？菸灰菸蒂隨風飄散，反而製造更多清潔困擾。最重要的是，它傳達了一個錯誤的訊息：『社區歡迎吸菸』，這與我們追求健康社區的目標背道而馳。" },
             { q: "「訂了也沒用，還不是有人會偷抽？誰來抓？反而造成鄰居衝突。」", a: "<strong>法規的宣示效果：</strong> 任何法規的建立，首要目標是『宣示』。將禁菸載入規約，首先就確立了『本社區不歡迎二手菸』的共同標準。絕大多數有公德心的住戶及訪客，看到明確的禁菸標示後，自然會遵守。<br><br><strong>分階段執行計畫：</strong> 我們可以分階段執行：<br>第一步：明確公告與標示。 在社區所有出入口、電梯、布告欄張貼醒目的禁菸標示。<br>第二步：柔性勸導。 初期由管理人員或保全進行禮貌性勸導。<br>第三步：依法執行。 對於屢勸不聽者，管委會即可依據<strong>《公寓大廈管理條例》第23條</strong>授權，透過規約中訂定的罰則來處理。<br><br><strong>降低衝突，而非製造衝突：</strong> 現況是，住戶不滿但無法可依，只能自己去勸說，這才更容易造成衝突。當禁菸成為社區的『明文規定』後，管理人員或住戶的勸導就有了正當性與依據，是『請您遵守社區規定』，而不是個人對個人的指責，這反而能減少爭議。" },
             { q: "「我也有繳管理費，為什麼我使用公共空間的權利被剝奪？」", a: "<strong>權利的平等與保障：</strong> 您說得對，每位繳費的住戶都擁有平等使用公共空間的權利。而此提案的目的，正是為了保障這份權利。因為當有人在公共空間吸菸時，其他不吸菸的住戶，特別是孕婦、兒童與長者，『健康地』使用這個空間的權利就被剝奪了。<br><br><strong>公共利益優先：</strong> 根據<strong>《公寓大廈管理條例》</strong>的精神，規約的訂定是為了增進全體區分所有權人的共同利益，維持共同秩序。當少部分人的行為（吸菸）與絕大多數人的健康利益（免於二手菸）相抵觸時，應以保障多數人的健康權為優先考量。<br><br><strong>舉例類比：</strong> 這就像我們都繳了管理費，有權使用電梯，但不能在電梯裡飲食、喧嘩或堆放雜物，因為這些行為會影響其他使用者的權益。同理，禁菸也是為了維護公共空間的使用品質。" },
@@ -295,47 +299,77 @@
 
         const refData = [
             {
-                category: "二手菸、三手菸對健康的危害",
+                category: "二手菸對心血管的危害",
                 references: [
                     { 
-                        citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", 
-                        summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血小板、內皮功能、動脈硬度等產生負面影響。",
+                        citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>.", 
+                        summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重。即使是短時間的暴露（數分鐘至數小時），也會迅速對血小板、內皮功能、動脈硬度、發炎反應等產生負面影響，其程度平均可達主動吸菸者的80%至90%。這解釋了為何二手菸會顯著增加約30%的冠心病風險。",
                         url: "https://www.ahajournals.org/doi/full/10.1161/CIRCULATIONAHA.104.492215"
                     },
+                     { 
+                        citation: "He, Y., Lam, T. H., et al. (2015). Passive smoking and risk of peripheral arterial disease and ischemic stroke in Chinese women who never smoked. <i>Circulation</i>.", 
+                        summary: "此研究針對從未吸菸的中國女性進行，發現長期暴露於二手菸會顯著增加周邊動脈疾病和缺血性中風的風險。研究強調，在從未吸菸的女性中，二手菸是導致心血管疾病的一個重要且可預防的危險因子。",
+                        url: "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.108.784801"
+                    },
                     { 
-                        citation: "IARC Working Group on the Evaluation of Carcinogenic Risks to Humans. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs on the evaluation of carcinogenic risks to humans</i>, <i>83</i>, 1.", 
-                        summary: "國際癌症研究機構（IARC）的這份專著，全面評估了菸草煙霧和非自願吸菸（二手菸）的致癌風險，並明確指出二手菸對人類是致癌物質（第一級致癌物）。",
+                        citation: "Institute of Medicine. (2010). Secondhand Smoke Exposure and Cardiovascular Effects: Making Sense of the Evidence. National Academies Press.", 
+                        summary: "這份報告回顧了二手菸與心血管疾病之間的關聯性，結論是二手菸暴露與急性冠狀動脈事件之間存在因果關係。研究發現，實施禁菸令後，因心臟病發作而住院的比例顯著下降。",
+                        url: "https://www.ncbi.nlm.nih.gov/books/NBK219560/"
+                    }
+                ]
+            },
+            {
+                category: "二手菸的全面健康危害與致癌性",
+                 references: [
+                    { 
+                        citation: "International Agency for Research on Cancer. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs</i>, Vol. 83.", 
+                        summary: "世界衛生組織(WHO)旗下的國際癌症研究機構(IARC)在這本專著中明確指出，有「充分的證據」表明菸草煙霧是人類的致癌物。報告不僅確認了主動吸菸會導致多種癌症，也首次將「非自願吸菸」（二手菸）列為確定的人類致癌物。",
                         url: "https://publications.iarc.fr/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Tobacco-Smoke-And-Involuntary-Smoking-2004"
                     },
                     { 
-                        citation: "Sleiman, M., et al. (2010). Formation of carcinogens indoors by surface-mediated reactions of nicotine with nitrous acid, leading to potential thirdhand smoke hazards. <i>Proceedings of the National Academy of Sciences</i>, <i>107</i>(15), 6576-6581.", 
-                        summary: "此研究揭示了「三手菸」的危害，附著在室內物體表面的尼古丁會與環境中的亞硝酸反應，形成具有致癌性的亞硝胺，對人體構成潛在的健康威脅。",
-                        url: "https://www.pnas.org/doi/10.1073/pnas.0912820107"
-                    },
-                    { 
-                        citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", 
-                        summary: "美國衛生及公共服務部發布的這份外科總署報告，詳細闡述了二手菸對健康的各種危害，包括導致心臟病、肺癌，以及對兒童呼吸系統的嚴重影響。",
-                        url: "https://www.ncbi.nlm.nih.gov/books/NBK44324/"
+                        citation: "U.S. Department of Health and Human Services. (2014). The Health Consequences of Smoking—50 Years of Progress: A Report of the Surgeon General.", 
+                        summary: "這份紀念首份報告發表50週年的報告，擴大了吸菸已知會導致的疾病清單。除了癌症與心血管疾病，報告還增加了糖尿病、肝癌、大腸癌、老年性黃斑部病變、勃起功能障礙等。報告強調，現代香菸的設計使其比50年前更具成癮性與危險性。",
+                        url: "https://www.ncbi.nlm.nih.gov/books/NBK179276/"
                     }
-                ]
+                 ]
             },
             {
-                category: "菸煙在集合式住宅中的傳播",
+                category: "三手菸的健康風險",
                 references: [
                     { 
-                        citation: "Kraev, T. A., et al. (2009). Indoor concentrations of nicotine in low-income, multi-unit housing: associations with smoking behaviours and housing characteristics. <i>Tobacco Control</i>, <i>18</i>(6), 438-444.", 
-                        summary: "研究發現，在集合式住宅中，即使是禁菸的住戶，家中仍會偵測到從鄰近吸菸戶滲透進來的尼古丁，顯示菸煙會透過各種管道在建築物內擴散。",
-                        url: "https://tobaccocontrol.bmj.com/content/18/6/438"
+                        citation: "Matt, G. E., Quintana, P. J., et al. (2011). Thirdhand tobacco smoke: emerging evidence and arguments for a public health strategy. <i>Environmental health perspectives</i>.", 
+                        summary: "此文獻定義了三手菸為菸熄滅後殘留在物體表面與灰塵中的污染物。這些殘留物會與環境中的氧化劑反應，生成新的有毒物質，例如菸草特有的亞硝胺。嬰幼兒因其行為模式（如爬行、觸摸物體後將手放入口中），是暴露於三手菸危害風險最高的族群。",
+                        url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3229536/"
+                    },
+                     { 
+                        citation: "Jacob, P., 3rd, Benowitz, N. L., et al. (2017). Thirdhand Smoke: New Evidence, Challenges, and Future Directions. <i>Chemical research in toxicology</i>.", 
+                        summary: "這篇綜述文章更新了三手菸的研究進展，指出三手菸的暴露不僅是透過皮膚接觸和食入，還會透過重新釋放到空氣中而被吸入。動物實驗模型顯示，三手菸暴露會導致肝臟脂肪變性、肺部發炎、傷口癒合延遲，以及行為過動等問題。",
+                        url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5501723/"
+                    }
+                ]
+            },
+             {
+                category: "電子煙的健康風險",
+                references: [
+                    { 
+                        citation: "National Academies of Sciences, Engineering, and Medicine. (2018). Public health consequences of e-cigarettes. National Academies Press.", 
+                        summary: "這份由美國國家科學、工程和醫學研究院發布的權威報告指出，儘管電子煙的危害可能低於傳統紙菸，但它絕非無害。報告總結，有確實證據顯示大多數電子煙產品含有並會釋放多種潛在有毒物質，其氣溶膠中含有尼古丁、重金屬和揮發性有機化合物。對於從未吸菸的青少年而言，使用電子煙會顯著增加他們未來吸食傳統紙菸的風險。",
+                        url: "https://nap.nationalacademies.org/catalog/24952/public-health-consequences-of-e-cigarettes"
                     }
                 ]
             },
             {
-                category: "通風設備無法有效過濾二手菸",
+                category: "通風設備無法有效濾除二手菸",
                 references: [
                     { 
                         citation: "World Health Organization. (2007). <i>Protection from exposure to second-hand tobacco smoke: policy recommendations</i>. WHO Press.", 
-                        summary: "世界衛生組織的政策建議明確指出，無論是通風、換氣或指定吸菸區，都無法有效保護人們免於二手菸的危害，唯一有效的方法是建立百分之百的無菸環境。",
+                        summary: "世界衛生組織（WHO）在這份政策建議中明確指出，通風、換氣或指定吸菸區等工程學方法，皆無法有效保護民眾免於二手菸的危害。唯一能提供有效保護的措施是建立100%完全無菸的室內環境。",
                         url: "https://iris.who.int/handle/10665/43677"
+                    },
+                     { 
+                        citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", 
+                        summary: "美國公共衛生署署長的這份報告做出結論，二手菸暴露沒有所謂的「安全劑量」。報告中也強調，分離吸菸者與非吸菸者、清潔空氣和建築物通風等方法，都不能完全消除非吸菸者暴露於二手菸的風險。全面禁菸是唯一有效的策略。",
+                        url: "https://www.ncbi.nlm.nih.gov/books/NBK44324/"
                     }
                 ]
             },
@@ -403,6 +437,15 @@
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+            
+            // --- Set Current Date in Footer ---
+            const lastUpdated = document.getElementById('last-updated');
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            lastUpdated.textContent = `最後更新日期：${year}年${month}月${day}日`;
+
         });
     </script>
 </body>
