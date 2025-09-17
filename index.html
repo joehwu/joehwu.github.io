@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
@@ -33,6 +33,9 @@
             color: #115e59; /* text-teal-800 */
             text-decoration-color: #115e59;
         }
+        h1 {
+             font-weight: 900;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -40,50 +43,74 @@
     <div class="container mx-auto max-w-4xl p-4 sm:p-6 md:p-8">
 
         <!-- Header -->
-        <header class="text-center mb-10">
-            <h1 class="text-3xl md:text-4xl font-bold text-teal-700 mb-2">為健康呼吸，為清新家園</h1>
+        <header class="text-center my-10">
+            <h1 class="text-4xl md:text-5xl font-black text-teal-700 mb-3">為健康呼吸，為清新家園</h1>
             <p class="text-xl md:text-2xl text-slate-600">支持「馥麗第社區」公共區域全面禁菸</p>
         </header>
 
         <!-- Proposer Section -->
-        <section class="bg-emerald-50 border-l-4 border-emerald-500 rounded-r-lg p-6 md:p-8 mb-10 shadow-md">
+        <section class="bg-emerald-50 border-l-4 border-emerald-500 rounded-r-lg p-6 md:p-8 mb-12 shadow-md">
             <h2 class="flex items-center text-2xl font-bold text-slate-800 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-                來自鄰居的真心話
+                一封來自鄰居的誠摯邀請
             </h2>
             <div class="space-y-4 text-slate-700 leading-relaxed">
-                <p>您好，我們是住在社區裡、同樣關心家人健康的住戶。我們發起這個提案，不是為了指責任何人，而是真心希望能為孩子們、為長輩、也為我們自己，打造一個更清新、更健康的居住環境。這需要每一位芳鄰的理解與支持，讓我們一起努力！</p>
+                <p>您好，這份提案來自一群住在社區裡、同樣關心家人健康的住戶。我們發起這個提案，不是為了指責任何人，而是真心希望能為孩子們、為長輩、也為我們自己，打造一個更清新、更健康的居住環境。這需要每一位芳鄰的理解與支持，讓我們一起努力！</p>
             </div>
         </section>
 
         <!-- Proposal Section -->
-        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-10">
-            <h2 class="flex items-center text-2xl font-bold text-slate-800 mb-4 border-b pb-2">
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-12">
+            <h2 class="flex items-center text-2xl font-bold text-slate-800 mb-4 border-b pb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                 提案說明
             </h2>
             <div class="space-y-4 text-slate-700 leading-relaxed">
                  <p><strong class="font-semibold text-teal-800">主旨：</strong>建請將社區公共區域全面禁菸納入規約。</p>
                 <p>本社區位處景美中心，常有民眾駐足於前庭吸菸。垃圾可以清運、噪音可以隔絕，唯獨二手菸的危害，住戶避無可避。世界衛生組織（WHO）已明確指出，任何通風或空調系統皆無法有效過濾二手菸的有害物質，唯有「完全無菸」的環境，才能保障健康。</p>
-                <p>科學證據顯示，二手菸會顯著提升癌症、心血管、呼吸及神經系統等疾病的風險。在尚無任何有效方式能隔絕菸害的前提下，為維護全體住戶的健康權，謹建議本社區公共區域（含前庭、梯廳、走廊等）應實施全面禁菸。</p>
-                <p>此案可依據 <strong class="text-teal-600 font-semibold">《菸害防制法》第19條及《公寓大廈管理條例》第16條與第23條</strong>，經區分所有權人會議決議，將禁菸事項載明於社區規約，並於公共區域設立清晰之禁菸標示，以共同打造清新、健康的居住環境。</p>
+                <p>科學證據顯示，二手菸是<strong class="text-red-600 font-semibold">第一級致癌物</strong>，會顯著提升癌症、心血管、呼吸及神經系統等疾病的風險。在尚無任何有效方式能隔絕菸害的前提下，為維護全體住戶的健康權，謹建議本社區公共區域（含前庭、梯廳、走廊等）應實施全面禁菸。</p>
+                <p>此案可依據 <strong class="text-teal-600 font-semibold">《菸害防制法》及《公寓大廈管理條例》</strong>，經區分所有權人會議決議，將禁菸事項載明於社區規約，並於公共區域設立清晰之禁菸標示，以共同打造清新、健康的居住環境。</p>
+            </div>
+        </section>
+        
+        <!-- Key Facts Section -->
+        <section class="mb-12">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">合法合規，有據可循</h3>
+                    <p class="text-sm text-slate-600">依《公寓大廈管理條例》經區權會決議，即可將禁菸納入社區規約。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500">
+                     <div class="flex justify-center mb-4">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" transform="rotate(45 12 12)" /></svg>
+                     </div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">捍衛健康，刻不容緩</h3>
+                    <p class="text-sm text-slate-600">二手菸是WHO認證的一級致癌物，通風無效，100%無菸才是唯一保障。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500">
+                     <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">提升價值，社區共好</h3>
+                    <p class="text-sm text-slate-600">無菸環境是現代社區的正面資產，能提升居住品質與房產價值。</p>
+                </div>
             </div>
         </section>
 
         <!-- Neighborhood Consensus Section -->
-        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-10">
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-12">
             <h2 class="flex items-center text-2xl font-bold text-slate-800 mb-4">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                 左鄰右舍的健康共識
             </h2>
             <p class="text-slate-700 leading-relaxed mb-6">走在景美街頭，您會發現，越來越多的店家、社區與鄰居，都已經自主貼出禁菸標示。從官方的勸導單張、社區的統一公告，到店家充滿創意的提醒，都顯示「打造無菸環境」早已是我們生活圈的共同價值。我們並不孤單，只是將這份共識，更明確地落實在我們的家園。</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <!-- All images are now uniform -->
                 <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景後街99號.jpg" alt="景後街99號的禁菸標示" class="w-full h-full object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center">
-                        <p class="font-bold">景後街 99 號</p>
-                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-2 text-white text-xs text-center"><p class="font-bold">景後街 99 號</p></div>
                 </div>
                 <div class="relative rounded-lg overflow-hidden shadow-md aspect-square gallery-image">
                     <img src="景文街46-1號_1.JPG" alt="景文街46-1號的禁菸標示 (1)" class="w-full h-full object-cover">
@@ -120,64 +147,60 @@
             </div>
         </section>
 
-
         <!-- Q&A Section -->
-        <section class="mt-10">
-            <h2 class="flex items-center justify-center text-2xl font-bold text-slate-800 mb-8">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <section class="mt-12">
+            <h2 class="flex items-center justify-center text-3xl font-bold text-slate-800 mb-10">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 常見問與答 (Q&A)
             </h2>
-            <div id="accordion-qa-container" class="space-y-3">
-                <!-- Q&A items will be injected here by JavaScript -->
-            </div>
+            <div id="accordion-qa-container" class="space-y-4"></div>
         </section>
 
         <!-- References Section -->
-        <section class="mt-10">
-            <h2 class="flex items-center justify-center text-2xl font-bold text-slate-800 mb-8">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+        <section class="mt-12">
+            <h2 class="flex items-center justify-center text-3xl font-bold text-slate-800 mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
                 提案的科學與法源基礎
             </h2>
-            <div id="accordion-ref-container" class="space-y-3">
-                <!-- References will be injected here by JavaScript -->
-            </div>
+            <div id="accordion-ref-container" class="space-y-4"></div>
         </section>
 
         <!-- Call to Action Section -->
-        <section class="bg-teal-700 text-white rounded-xl shadow-lg p-6 md:p-8 mt-12 text-center">
-            <h2 class="flex items-center justify-center text-2xl font-bold mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+        <section class="bg-teal-700 text-white rounded-xl shadow-lg p-8 md:p-10 mt-16 text-center">
+            <h2 class="flex items-center justify-center text-3xl font-bold mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                 如何支持我們？
             </h2>
-            <p class="mb-6 max-w-2xl mx-auto">打造無菸家園需要你我共同努力。您的每一個支持，都是讓社區更美好的重要力量！</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-teal-800">
-                <div class="bg-white p-4 rounded-lg">
-                    <h3 class="font-bold text-lg mb-1">分享資訊</h3>
+            <p class="mb-8 max-w-2xl mx-auto text-teal-100">打造無菸家園需要你我共同努力。您的每一個支持，都是讓社區更美好的重要力量！</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-teal-800">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2">分享資訊</h3>
                     <p class="text-sm">將這個網頁分享給您的鄰居或社區群組，讓更多人了解提案內容。</p>
                 </div>
-                <div class="bg-white p-4 rounded-lg">
-                    <h3 class="font-bold text-lg mb-1">友善溝通</h3>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2">友善溝通</h3>
                     <p class="text-sm">與鄰居們聊聊這個議題，匯集更多正面的意見與支持。</p>
                 </div>
-                <div class="bg-white p-4 rounded-lg">
-                    <h3 class="font-bold text-lg mb-1">參與會議</h3>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2">參與會議</h3>
                     <p class="text-sm">請務必參與將召開的區分所有權人會議，投下您關鍵的同意票！</p>
                 </div>
             </div>
             
-            <!-- QR Code Section -->
-            <div class="mt-8 pt-6 border-t border-teal-600">
-                <h3 class="font-bold text-lg mb-4 text-white">輕鬆分享，凝聚共識</h3>
+            <div class="mt-10 pt-8 border-t border-teal-600">
+                <h3 class="font-bold text-xl mb-4 text-white">輕鬆分享，凝聚共識</h3>
                 <div class="flex flex-col items-center">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://fulidi-no-smoking.netlify.app/&bgcolor=ffffff&color=134e4a&qzone=1" 
-                         alt="QR Code to share website" 
-                         class="rounded-lg bg-white p-2 shadow-lg">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://fulidi-no-smoking.netlify.app/&bgcolor=ffffff&color=134e4a&qzone=1" alt="QR Code to share website" class="rounded-lg bg-white p-2 shadow-lg">
                     <p class="mt-3 text-teal-100">掃描 QR Code，將此頁面分享給更多鄰居！</p>
                 </div>
             </div>
-
         </section>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-8">
+        <p class="text-slate-500">為更美好的社區共同努力</p>
+    </footer>
 
     <!-- Modal for Image Zoom -->
     <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
@@ -185,11 +208,11 @@
         <img id="modalImage" src="" alt="放大的圖片" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
     </div>
 
-
     <script>
         function createAccordion(containerId, data, isRef = false) {
             const container = document.getElementById(containerId);
             if (!container) return;
+            container.innerHTML = ''; // Clear previous content
 
             data.forEach((item, index) => {
                 const div = document.createElement('div');
@@ -208,7 +231,7 @@
                         </div>
                     `}).join('');
                 } else {
-                    contentHtml = item.a;
+                     contentHtml = `<ul class="list-disc list-outside pl-5 space-y-2">${item.a.map(point => `<li>${point}</li>`).join('')}</ul>`;
                 }
 
                 div.innerHTML = `
@@ -216,15 +239,11 @@
                         <span class="mr-2">${isRef ? '' : `Q${index + 1}:`}</span>
                         ${isRef ? item.category : item.q}
                         <span class="plus-icon absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-teal-500 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                         </span>
                     </button>
                     <div class="accordion-content">
-                        <div class="p-4 pt-2 text-slate-600 leading-relaxed border-t border-slate-200">
-                            ${contentHtml}
-                        </div>
+                        <div class="p-4 pt-2 text-slate-600 leading-relaxed border-t border-slate-200">${contentHtml}</div>
                     </div>
                 `;
                 container.appendChild(div);
@@ -233,18 +252,12 @@
             container.addEventListener('click', function(e) {
                 const button = e.target.closest('.accordion-button');
                 if (!button) return;
-
-                const allButtonsInContainer = container.querySelectorAll('.accordion-button');
                 const content = button.nextElementSibling;
                 const isActive = button.classList.contains('active');
-
-                // Close all accordions in this container
-                allButtonsInContainer.forEach(btn => {
+                container.querySelectorAll('.accordion-button').forEach(btn => {
                     btn.classList.remove('active');
                     btn.nextElementSibling.style.maxHeight = null;
                 });
-                
-                // If the clicked one was not active, open it
                 if (!isActive) {
                     button.classList.add('active');
                     content.style.maxHeight = content.scrollHeight + "px";
@@ -253,124 +266,76 @@
         }
 
         const qaData = [
-            { q: "這是我的自由，在戶外抽菸又不犯法，管太多了！", a: "<strong>自由的界線：</strong> 個人自由不應建立在侵害他人健康的基礎上，如同噪音擾鄰。<br><strong>法律的授權：</strong> 《菸害防制法》第19條第1項第4款授權場所管理人指定禁菸區。社區依此合法指定。<br><strong>無安全暴露劑量：</strong> WHO和CDC明確指出，二手菸沒有安全的暴露劑量，吸入即有害。" },
-            { q: "戶外空間那麼開闊，菸味一下就散了，有那麼嚴重嗎？", a: "<strong>戶外二手菸濃度研究：</strong> 史丹佛研究顯示，戶外數公尺遠仍可達有害PM2.5濃度。<br><strong>菸霧飄散與滲透：</strong> 菸霧隨風飄散可進入鄰近窗戶、陽台、門縫。<br><strong>三手菸的危害：</strong> 菸毒物會附著在物體表面（牆面、植栽、衣物），即使菸熄滅後仍持續危害。" },
-            { q: "與其全面禁止，不如設立一個『吸菸區』就好？", a: "<strong>菸霧無邊界：</strong> 菸霧會隨風飄散數公尺，社區有限空間無法避免影響。<br><strong>WHO 的明確立場：</strong> WHO強調，任何分開吸菸者與非吸菸者的措施都不能完全消除暴露，唯有100%無菸環境有效。<br><strong>實際執行的困難：</strong> 吸菸區會導致管理困難、菸灰亂飄，並傳達錯誤訊息。" },
-            { q: "訂了也沒用，還不是有人會偷抽？誰來抓？反而造成鄰居衝突。", a: "<strong>法規的宣示效果：</strong> 建立禁菸規約，首先確立「社區不歡迎二手菸」的共同標準。<br><strong>分階段執行計畫：</strong> 透過公告標示、柔性勸導，再到依規約處罰，逐步落實。<br><strong>降低衝突，而非製造衝突：</strong> 明文規定使勸導有依據，減少住戶間直接衝突。" },
-            { q: "我也有繳管理費，為什麼我使用公共空間的權利被剝奪？", a: "<strong>權利的平等與保障：</strong> 所有住戶都有平等使用權，但吸菸行為剝奪了其他住戶「健康地」使用空間的權利。<br><strong>公共利益優先：</strong> 《公寓大廈管理條例》精神是維護共同利益，多數人健康權優先於少數人吸菸行為。<br><strong>舉例類比：</strong> 如同電梯不能飲食喧嘩，禁菸是為了維護公共空間使用品質。" },
-            { q: "為什麼只針對抽菸？小孩在前庭吵鬧、住戶的油煙味、年節燒金紙，這些也影響安寧和空氣，怎麼不管？", a: "<strong>危害等級的根本差異：</strong> 二手菸是WHO認證的「一級致癌物」，與油煙、噪音的影響本質不同。<br><strong>受害的不可控性：</strong> 菸害是持續性、非自願的暴露，無法避免，對健康威脅遠高於其他干擾。<br><strong>法律的明確規範：</strong> 《菸害防制法》的專法地位，證明菸害是需要特別管制的公共衛生議題。" },
-            { q: "在戶外禁菸，只會逼得大家改在自家陽台抽，菸味更容易飄進樓上鄰居家，不是更糟嗎？", a: "<strong>陽台並非法外之地：</strong> 自家陽台吸菸若影響鄰居，同樣構成「權利濫用」，違反《民法》。<br><strong>已有法院判例支持：</strong> 多起法院判例已裁定在家中吸菸影響鄰居須賠償並禁止菸味飄散。<br><strong>分階段處理，建立社區共識：</strong> 先解決影響最廣的公共區域，建立無菸共識，再處理個別住戶問題。" },
-            { q: "抽菸是我舒緩壓力的方式，工作很累，回家連在樓下抽根菸放鬆一下都不行嗎？太不近人情了！", a: "<strong>醫學事實：</strong> 尼古丁的「放鬆感」實為緩解戒斷症狀的假象，長期有害神經系統。<br><strong>危害自己，也危害他人：</strong> 個人舒壓不應犧牲鄰居（特別是弱勢族群）的健康權益。<br><strong>提供正向支持：</strong> 社區目標是「支持健康」，可鼓勵使用戒菸門診等資源，尋求真正健康的舒壓方式。" },
-            { q: "這是少數人強加的意見吧？有問過所有住戶的意見嗎？憑什麼你們幾個人說了算？", a: "<strong>遵循合法民主程序：</strong> 提案是正式程序，將送交管委會和區權會，符合《公寓大廈管理條例》規定。<br><strong>提案是討論的起點：</strong> 目的在於公開討論議題，最終決定由全體區分所有權人共同決議。<br><strong>健康權的普世價值：</strong> 呼吸乾淨空氣是基本人權，相信住戶會為了健康做出明智選擇。" },
-            { q: "我的不是傳統紙菸，是加熱菸／電子煙，只會產生『蒸氣』，沒有二手菸的問題，不應該一起禁止！", a: "<strong>法律上的明確禁止與納管：</strong> 新版《菸害防制法》已「全面禁止」電子煙使用；加熱菸則被視為「菸品」，適用所有傳統菸品的禁菸規定。<br><strong>科學上的健康危害：</strong> 新型菸品產生的是含有尼古丁、重金屬、甲醛等致癌物的「氣溶膠」，絕非無害水蒸氣，同樣對旁人健康有害。" },
-            { q: "不喜歡菸味，你們可以自己關窗戶啊！要求別人，不如管理好自己。", a: "<strong>基本居住權的侵害：</strong> 開窗通風、呼吸新鮮空氣是基本居住權，為躲避菸害而關窗是對居住品質的嚴重侵害。<br><strong>污染者責任原則：</strong> 菸害製造者有責任停止污染，而非要求被污染者自我防禦。<br><strong>關窗造成的其他健康風險：</strong> 長期關窗會導致室內二氧化碳、甲醛等空污物濃度升高，同樣損害健康。" },
-            { q: "我在這裡住了二十幾年，一直都這樣在樓下抽菸，以前都沒事，為什麼現在突然要改？", a: "<strong>與時俱進的健康觀念：</strong> 社會健康與安全標準不斷進步，對菸害的認識已更全面，規範應反映這種進步。<br><strong>社區是流動的有機體：</strong> 社區規範應為所有成員（特別是脆弱族群）提供安全健康環境，為下一代做出改變。<br><strong>從負擔變為資產：</strong> 「全面禁菸」的公共環境是現代社區的正面標籤和資產，能提升社區價值。" }
+            { q: "這是我的自由，在戶外抽菸又不犯法，管太多了！", a: ["<strong>自由的界線：</strong> 個人自由不應建立在侵害他人健康的基礎上，如同噪音擾鄰。", "<strong>法律的授權：</strong> 《菸害防制法》第19條第1項第4款授權場所管理人指定禁菸區。社區依此合法指定。", "<strong>無安全暴露劑量：</strong> WHO和CDC明確指出，二手菸沒有安全的暴露劑量，吸入即有害。"] },
+            { q: "戶外空間那麼開闊，菸味一下就散了，有那麼嚴重嗎？", a: ["<strong>戶外二手菸濃度研究：</strong> 史丹佛研究顯示，戶外數公尺遠仍可達有害PM2.5濃度。", "<strong>菸霧飄散與滲透：</strong> 菸霧隨風飄散可進入鄰近窗戶、陽台、門縫。", "<strong>三手菸的危害：</strong> 菸毒物會附著在物體表面（牆面、植栽、衣物），即使菸熄滅後仍持續危害。"] },
+            { q: "與其全面禁止，不如設立一個『吸菸區』就好？", a: ["<strong>菸霧無邊界：</strong> 菸霧會隨風飄散數公尺，社區有限空間無法避免影響。", "<strong>WHO 的明確立場：</strong> WHO強調，任何分開吸菸者與非吸菸者的措施都不能完全消除暴露，唯有100%無菸環境有效。", "<strong>實際執行的困難：</strong> 吸菸區會導致管理困難、菸灰亂飄，並傳達錯誤訊息。"] },
+            { q: "訂了也沒用，還不是有人會偷抽？誰來抓？反而造成鄰居衝突。", a: ["<strong>法規的宣示效果：</strong> 建立禁菸規約，首先確立「社區不歡迎二手菸」的共同標準。", "<strong>分階段執行計畫：</strong> 透過公告標示、柔性勸導，再到依規約處罰，逐步落實。", "<strong>降低衝突，而非製造衝突：</strong> 明文規定使勸導有依據，減少住戶間直接衝突。"] },
+            { q: "我也有繳管理費，為什麼我使用公共空間的權利被剝奪？", a: ["<strong>權利的平等與保障：</strong> 所有住戶都有平等使用權，但吸菸行為剝奪了其他住戶「健康地」使用空間的權利。", "<strong>公共利益優先：</strong> 《公寓大廈管理條例》精神是維護共同利益，多數人健康權優先於少數人吸菸行為。", "<strong>舉例類比：</strong> 如同電梯不能飲食喧嘩，禁菸是為了維護公共空間使用品質。"] },
+            { q: "為什麼只針對抽菸？小孩吵鬧、油煙味、燒金紙，怎麼不管？", a: ["<strong>危害等級的根本差異：</strong> 二手菸是WHO認證的「一級致癌物」，與油煙、噪音的影響本質不同。", "<strong>受害的不可控性：</strong> 菸害是持續性、非自願的暴露，無法避免，對健康威脅遠高於其他干擾。", "<strong>法律的明確規範：</strong> 《菸害防制法》的專法地位，證明菸害是需要特別管制的公共衛生議題。"] },
+            { q: "在戶外禁菸，只會逼得大家改在自家陽台抽，不是更糟嗎？", a: ["<strong>陽台並非法外之地：</strong> 自家陽台吸菸若影響鄰居，同樣構成「權利濫用」，違反《民法》。", "<strong>已有法院判例支持：</strong> 多起法院判例已裁定在家中吸菸影響鄰居須賠償並禁止菸味飄散。", "<strong>分階段處理，建立社區共識：</strong> 先解決影響最廣的公共區域，建立無菸共識，再處理個別住戶問題。"] },
+            { q: "抽菸是我舒緩壓力的方式，回家連在樓下放鬆一下都不行嗎？", a: ["<strong>醫學事實：</strong> 尼古丁的「放鬆感」實為緩解戒斷症狀的假象，長期有害神經系統。", "<strong>危害自己，也危害他人：</strong> 個人舒壓不應犧牲鄰居（特別是弱勢族群）的健康權益。", "<strong>提供正向支持：</strong> 社區目標是「支持健康」，可鼓勵使用戒菸門診等資源，尋求真正健康的舒壓方式。"] },
+            { q: "這是少數人強加的意見吧？有問過所有住戶嗎？", a: ["<strong>遵循合法民主程序：</strong> 提案是正式程序，將送交管委會和區權會，符合《公寓大廈管理條例》規定。", "<strong>提案是討論的起點：</strong> 目的在於公開討論議題，最終決定由全體區分所有權人共同決議。", "<strong>健康權的普世價值：</strong> 呼吸乾淨空氣是基本人權，相信住戶會為了健康做出明智選擇。"] },
+            { q: "加熱菸／電子煙只會產生『蒸氣』，沒有二手菸問題吧？", a: ["<strong>法律上的明確禁止與納管：</strong> 新版《菸害防制法》已「全面禁止」電子煙使用；加熱菸則被視為「菸品」，適用所有傳統菸品的禁菸規定。", "<strong>科學上的健康危害：</strong> 新型菸品產生的是含有尼古丁、重金屬、甲醛等致癌物的「氣溶膠」，絕非無害水蒸氣，同樣對旁人健康有害。"] },
+            { q: "不喜歡菸味，你們可以自己關窗戶啊！", a: ["<strong>基本居住權的侵害：</strong> 開窗通風、呼吸新鮮空氣是基本居住權，為躲避菸害而關窗是對居住品質的嚴重侵害。", "<strong>污染者責任原則：</strong> 菸害製造者有責任停止污染，而非要求被污染者自我防禦。", "<strong>關窗造成的其他健康風險：</strong> 長期關窗會導致室內二氧化碳、甲醛等空污物濃度升高，同樣損害健康。"] },
+            { q: "我在這裡住了二十幾年都這樣，為什麼現在突然要改？", a: ["<strong>與時俱進的健康觀念：</strong> 社會健康與安全標準不斷進步，對菸害的認識已更全面，規範應反映這種進步。", "<strong>社區是流動的有機體：</strong> 社區規範應為所有成員（特別是脆弱族群）提供安全健康環境，為下一代做出改變。", "<strong>從負擔變為資產：</strong> 「全面禁菸」的公共環境是現代社區的正面標籤和資產，能提升社區價值。"] }
         ];
 
         const refData = [
             {
                 category: "二手菸、三手菸對健康的危害",
                 references: [
-                    { 
-                        citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", 
-                        summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血小板、內皮功能、動脈硬度等產生負面影響。",
-                        url: "https://www.ahajournals.org/doi/full/10.1161/CIRCULATIONAHA.104.492215"
-                    },
-                    { 
-                        citation: "IARC Working Group on the Evaluation of Carcinogenic Risks to Humans. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs on the evaluation of carcinogenic risks to humans</i>, <i>83</i>, 1.", 
-                        summary: "國際癌症研究機構（IARC）的這份專著，全面評估了菸草煙霧和非自願吸菸（二手菸）的致癌風險，並明確指出二手菸對人類是致癌物質（第一級致癌物）。",
-                        url: "https://publications.iarc.fr/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Tobacco-Smoke-And-Involuntary-Smoking-2004"
-                    },
-                    { 
-                        citation: "Sleiman, M., et al. (2010). Formation of carcinogens indoors by surface-mediated reactions of nicotine with nitrous acid, leading to potential thirdhand smoke hazards. <i>Proceedings of the National Academy of Sciences</i>, <i>107</i>(15), 6576-6581.", 
-                        summary: "此研究揭示了「三手菸」的危害，附著在室內物體表面的尼古丁會與環境中的亞硝酸反應，形成具有致癌性的亞硝胺，對人體構成潛在的健康威脅。",
-                        url: "https://www.pnas.org/doi/10.1073/pnas.0912820107"
-                    },
-                    { 
-                        citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", 
-                        summary: "美國衛生及公共服務部發布的這份外科總署報告，詳細闡述了二手菸對健康的各種危害，包括導致心臟病、肺癌，以及對兒童呼吸系統的嚴重影響。",
-                        url: "https://www.ncbi.nlm.nih.gov/books/NBK44324/"
-                    }
+                    { citation: "Barnoya, J., & Glantz, S. A. (2005). Cardiovascular effects of secondhand smoke: nearly as large as smoking. <i>Circulation</i>, <i>111</i>(20), 2684-2698.", summary: "這篇文獻回顧指出，二手菸對心血管系統的危害幾乎與主動吸菸一樣嚴重，即使是短時間的暴露也會迅速對血小板、內皮功能、動脈硬度等產生負面影響。", url: "https://www.ahajournals.org/doi/full/10.1161/CIRCULATIONAHA.104.492215" },
+                    { citation: "IARC Working Group on the Evaluation of Carcinogenic Risks to Humans. (2004). Tobacco smoke and involuntary smoking. <i>IARC monographs on the evaluation of carcinogenic risks to humans</i>, <i>83</i>, 1.", summary: "國際癌症研究機構（IARC）的這份專著，全面評估了菸草煙霧和非自願吸菸（二手菸）的致癌風險，並明確指出二手菸對人類是致癌物質（第一級致癌物）。", url: "https://publications.iarc.fr/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Tobacco-Smoke-And-Involuntary-Smoking-2004" },
+                    { citation: "Sleiman, M., et al. (2010). Formation of carcinogens indoors by surface-mediated reactions of nicotine with nitrous acid, leading to potential thirdhand smoke hazards. <i>Proceedings of the National Academy of Sciences</i>, <i>107</i>(15), 6576-6581.", summary: "此研究揭示了「三手菸」的危害，附著在室內物體表面的尼古丁會與環境中的亞硝酸反應，形成具有致癌性的亞硝胺，對人體構成潛在的健康威脅。", url: "https://www.pnas.org/doi/10.1073/pnas.0912820107" },
+                    { citation: "U.S. Department of Health and Human Services. (2006). <i>The Health Consequences of Involuntary Exposure to Tobacco Smoke: A Report of the Surgeon General</i>.", summary: "美國衛生及公共服務部發布的這份外科總署報告，詳細闡述了二手菸對健康的各種危害，包括導致心臟病、肺癌，以及對兒童呼吸系統的嚴重影響。", url: "https://www.ncbi.nlm.nih.gov/books/NBK44324/" }
                 ]
             },
             {
                 category: "菸煙在集合式住宅中的傳播",
-                references: [
-                    { 
-                        citation: "Kraev, T. A., et al. (2009). Indoor concentrations of nicotine in low-income, multi-unit housing: associations with smoking behaviours and housing characteristics. <i>Tobacco Control</i>, <i>18</i>(6), 438-444.", 
-                        summary: "研究發現，在集合式住宅中，即使是禁菸的住戶，家中仍會偵測到從鄰近吸菸戶滲透進來的尼古丁，顯示菸煙會透過各種管道在建築物內擴散。",
-                        url: "https://tobaccocontrol.bmj.com/content/18/6/438"
-                    }
-                ]
+                references: [ { citation: "Kraev, T. A., et al. (2009). Indoor concentrations of nicotine in low-income, multi-unit housing. <i>Tobacco Control</i>, <i>18</i>(6), 438-444.", summary: "研究發現，在集合式住宅中，即使是禁菸的住戶，家中仍會偵測到從鄰近吸菸戶滲透進來的尼古丁，顯示菸煙會透過各種管道在建築物內擴散。", url: "https://tobaccocontrol.bmj.com/content/18/6/438" } ]
             },
             {
                 category: "通風設備無法有效過濾二手菸",
-                references: [
-                    { 
-                        citation: "World Health Organization. (2007). <i>Protection from exposure to second-hand tobacco smoke: policy recommendations</i>. WHO Press.", 
-                        summary: "世界衛生組織的政策建議明確指出，無論是通風、換氣或指定吸菸區，都無法有效保護人們免於二手菸的危害，唯一有效的方法是建立百分之百的無菸環境。",
-                        url: "https://iris.who.int/handle/10665/43677"
-                    }
-                ]
+                references: [ { citation: "World Health Organization. (2007). <i>Protection from exposure to second-hand tobacco smoke: policy recommendations</i>. WHO Press.", summary: "世界衛生組織的政策建議明確指出，無論是通風、換氣或指定吸菸區，都無法有效保護人們免於二手菸的危害，唯一有效的方法是建立百分之百的無菸環境。", url: "https://iris.who.int/handle/10665/43677" } ]
             },
             {
                 category: "法源依據",
                 references: [
-                    { 
-                        citation: "全國法規資料庫。《菸害防制法》", 
-                        summary: "其中第19條規定了室外公共場所的禁菸範圍，並授權各級主管機關可公告指定其他禁菸場所，是社區管委會劃定禁菸區的法源之一。",
-                        url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0070021"
-                    },
-                    { 
-                        citation: "全國法規資料庫。《公寓大廈管理條例》", 
-                        summary: "第16條規定住戶不得有妨礙公共衛生、公共安寧及公共安全的行為。第23條則授權社區可透過區權會決議，將禁菸事項納入規約。這兩條是將社區公共區域禁菸納入規約的主要法源基礎。",
-                        url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070118"
-                    }
+                    { citation: "全國法規資料庫。《菸害防制法》", summary: "其中第19條規定了室外公共場所的禁菸範圍，並授權各級主管機關可公告指定其他禁菸場所，是社區管委會劃定禁菸區的法源之一。", url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0070021" },
+                    { citation: "全國法規資料庫。《公寓大廈管理條例》", summary: "第16條規定住戶不得有妨礙公共衛生、公共安寧及公共安全的行為。第23條則授權社區可透過區權會決議，將禁菸事項納入規約。這兩條是將社區公共區域禁菸納入規約的主要法源基礎。", url: "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070118" }
                 ]
             }
         ];
 
-        // Initialize both accordions
-        createAccordion('accordion-qa-container', qaData, false);
-        createAccordion('accordion-ref-container', refData, true);
+        document.addEventListener('DOMContentLoaded', () => {
+            createAccordion('accordion-qa-container', qaData, false);
+            createAccordion('accordion-ref-container', refData, true);
 
-        // --- Image Modal Logic ---
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const closeModalBtn = document.getElementById('closeModal');
-        const galleryImages = document.querySelectorAll('.gallery-image');
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModalBtn = document.getElementById('closeModal');
+            const galleryImages = document.querySelectorAll('.gallery-image');
 
-        galleryImages.forEach(container => {
-            container.addEventListener('click', () => {
-                const imgElement = container.querySelector('img');
-                if (imgElement) {
-                    modalImage.src = imgElement.src;
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                }
+            galleryImages.forEach(container => {
+                container.addEventListener('click', () => {
+                    const imgElement = container.querySelector('img');
+                    if (imgElement) {
+                        modalImage.src = imgElement.src;
+                        modal.classList.remove('hidden');
+                        modal.classList.add('flex');
+                    }
+                });
             });
-        });
 
-        const closeTheModal = () => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        };
+            const closeTheModal = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            };
 
-        closeModalBtn.addEventListener('click', closeTheModal);
-
-        modal.addEventListener('click', (e) => {
-            // Close if the click is on the background, not the image itself
-            if (e.target === modal) {
-                closeTheModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeTheModal();
-            }
+            closeModalBtn.addEventListener('click', closeTheModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeTheModal(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeTheModal(); });
         });
     </script>
 </body>
 </html>
-
